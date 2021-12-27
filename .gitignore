@@ -1,6 +1,4 @@
 # Custom
-*/node_modules
-*.env
 *.configuration
 *.conf
 
