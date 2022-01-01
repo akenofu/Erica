@@ -1,0 +1,24 @@
+{
+  "name": "Erica",
+  "main": "main.js",
+  "author": "akenofu",
+  "version": "6.0.0",
+  "description": "A discord music bot with swag 😉",
+  "scripts": {
+    "start": "node main.js",
+    "development": "nodemon main.js"
+  },
+  "dependencies": {
+    "axios": "^0.24.0",
+    "discord-player": "^5.1.0",
+    "discord.js": "^13.1.0",
+    "dotenv": "^10.0.0",
+    "ffmpeg-static": "^4.4.0",
+    "ms": "^3.0.0-canary.1",
+    "opusscript": "^0.0.8",
+    "ytdl-core": "^4.9.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
