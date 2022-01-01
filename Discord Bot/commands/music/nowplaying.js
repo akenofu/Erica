@@ -27,6 +27,7 @@ module.exports = {
         embed.setDescription(`Volume **${queue.volume}**%\nDuration **${trackDuration}**\nLoop mode **${methods[queue.repeatMode]}**\nRequested by ${track.requestedBy}`);
 
         embed.setTimestamp();
+        embed.setImage('https://c.tenor.com/wtv7ADhTUD4AAAAi/dance-happy.gif');
         embed.setFooter('Play your favorite music ❤️ directly in your server', message.author.avatarURL({ dynamic: true }));
 
         const saveButton = new MessageButton();
