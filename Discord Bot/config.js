@@ -1,8 +1,8 @@
 module.exports = {
     app: {
         px: '+',
-        token:  process.env.token,
-        playing: 'Cool'
+        token: process.env.token,
+        playing: 'Music'
     },
 
     opt: {

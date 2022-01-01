@@ -14,11 +14,12 @@ module.exports = {
 
         const commands = client.commands.filter(x => x.showHelp !== false);
 
-        embed.setDescription('A discord music bot with swag ❤️');
+        embed.setDescription('Play your favorite music ❤️ directly in your server');
         embed.addField(`Enabled - ${commands.size}`, commands.map(x => `\`${x.name}${x.aliases[0] ? ` (${x.aliases.map(y => y).join(', ')})\`` : '\`'}`).join(' | '));
 
         embed.setTimestamp();
-        embed.setFooter('A Discord music bot with swag ❤️', message.author.avatarURL({ dynamic: true }));
+        embed.setFooter('Play your favorite music ❤️ directly in your server', message.author.avatarURL({ dynamic: true }));
+        embed.setImage('https://c.tenor.com/wtv7ADhTUD4AAAAi/dance-happy.gif');
 
         message.channel.send({ embeds: [embed] });
     },
