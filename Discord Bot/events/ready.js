@@ -14,7 +14,7 @@ module.exports = async (client) => {
 
   Promise.all(
     guilds.map((guild) => {
-      return put(`${process.env.statisticsAPI}/api/v1/statistics/servers`, {
+      return post(`${process.env.statisticsAPI}/api/v1/statistics/servers`, {
         server: guild,
       });
     })

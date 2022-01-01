@@ -47,7 +47,7 @@ module.exports = {
     try {
       await put(`${process.env.statisticsAPI}/api/v1/statistics/submit`, {
         songRequest: {
-          id: message.guild.id,
+          serverID: message.guild.id,
           songName: res.tracks[0].title,
         },
       });
