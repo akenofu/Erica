@@ -1,5 +1,5 @@
 const { QueryType } = require('discord-player');
-const { post, Axios } = require('axios')
+const { put,post, Axios } = require('axios')
 
 
 module.exports = {
@@ -37,17 +37,15 @@ module.exports = {
         if (!queue.playing) await queue.play();
     
         try{
-            await post(apiEndPoint, {
+            await put(`${process.env.statisticsAPI}/api/v1/statistics/submit`, {
                 "songRequest": {
                     "id": message.guild.id,
-                    "serverName": message.guild.name,
                     "songName": res.tracks[0].title,
                 }
             });
             }
     
             catch(exception){
-                // TODO FIX
                 console.log(exception);
             }
 
