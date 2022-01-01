@@ -34,20 +34,26 @@ module.exports = {
 
         res.playlist ? queue.addTracks(res.tracks) : queue.addTrack(res.tracks[0]);
 
+
         if (!queue.playing) await queue.play();
-
     
-        post(apiEndPoint, {
-            "songRequest": {
-                "id": message.guild.id,
-                "serverName": message.guild.name,
-                "songName": res.tracks[0].title,
-                "requestingUserName": message.author.username,
-                "timestamp": Date(Date.now()),
-                "channelName": message.channel.name
+        try{
+            await post(apiEndPoint, {
+                "songRequest": {
+                    "id": message.guild.id,
+                    "serverName": message.guild.name,
+                    "songName": res.tracks[0].title,
+                    "requestingUserName": message.author.username,
+                    "timestamp": Date(Date.now()),
+                    "channelName": message.channel.name
+                }
+            });
             }
-        });
-
+    
+            catch(exception){
+                // TODO FIX
+                console.log(exception);
+            }
 
     },
 };
