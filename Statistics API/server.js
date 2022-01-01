@@ -22,6 +22,6 @@ app.listen(PORT, ()=> {
 })
 
 
-app.use('/api/v1/ericaservers', require('./routes/ericaservers'))
-app.use('/api/v1/submit', require('./routes/submit'))
+app.use('/api/v1/servers', require('./routes/servers'))
+app.use('/api/v1/statistics', require('./routes/statistics'))
 

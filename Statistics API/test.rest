@@ -1,39 +1,29 @@
-### Testing /users GET
-GET http://localhost:3000/api/v1/ericaservers HTTP/1.1
+### Testing get servers end point
+GET http://localhost:3000/api/v1/servers HTTP/1.1
 
-### Testing /users POST
 
-POST http://localhost:3000/api/v1/submit HTTP/1.1
+### Testing get server by id
+GET http://localhost:3000/api/v1/servers/131241455 HTTP/1.1
+
+
+### Testing create server
+POST http://localhost:3000/api/v1/servers HTTP/1.1
 Content-Type: application/json
 
 {
-    "id": "server",
-    "name": "name",
-    "song": [
-        {
-            "name":"song1"
-        }
-    ]
+    "server": {
+        "serverID": "131241455",
+        "serverName": "Sasa Hub"
+    }
 }
 
-### Posting invalid data to test middleware, Not needed
-POST http://localhost:3000/api/v1/EricaServers HTTP/1.1
+### Testing sending a song request
+PUT http://localhost:3000/api/v1/statistics/submit HTTP/1.1
 Content-Type: application/json
 
 {
-    "name": "w",
-    "age": 22
-}
-###
-PUT http://localhost:3000/api/v1/submit HTTP/1.1
-Content-Type: application/json
-
-{
-    "id": "server",
-    "name": "name",
-    "song": 
-        {
-            "name":"song33"
+     "songRequest": {
+                "serverID": "131241455",
+                "songName":"Sasa lounge gamed awy"
         }
-    
 }
