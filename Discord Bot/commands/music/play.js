@@ -1,7 +1,6 @@
 const { QueryType } = require('discord-player');
 const { post, Axios } = require('axios')
 
-const apiEndPoint = 'http://localhost:8000/endpt';
 
 module.exports = {
     name: 'play',
@@ -43,9 +42,6 @@ module.exports = {
                     "id": message.guild.id,
                     "serverName": message.guild.name,
                     "songName": res.tracks[0].title,
-                    "requestingUserName": message.author.username,
-                    "timestamp": Date(Date.now()),
-                    "channelName": message.channel.name
                 }
             });
             }
