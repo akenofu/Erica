@@ -13,13 +13,13 @@ const App = (props) => {
     
 
     useEffect(() => {
-      fetch('https://localhost:3000/api/v1/servers')
+      fetch('http://localhost:3000/api/v1/servers')
       .then(response=> response.json())
       .then(data => {
         const formattedData = data.map(server => {
             return {
               serverID: server.serverID,
-              name: server.serverName,
+              serverName: server.serverName,
               numberOfSongsRequests: server.numberOfSongsRequests,
               mostRequestedSong: server.mostRequestedSong
             }
@@ -36,7 +36,7 @@ const App = (props) => {
     }
 
     const filteredServers = Servers.filter(Server =>{
-      return Server.name.toLowerCase().includes(searchField.toLowerCase());
+      return Server.serverName.toLowerCase().includes(searchField.toLowerCase());
     })
 
     return !Servers.length ?

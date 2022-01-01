@@ -3,13 +3,12 @@ const server = require("../model/server");
 const getServers = async (req, res, next) => {
   const discordServers = await server.find();
 
-  console.log(discordServers);
   const responseServers = discordServers.map((discordServer) => {
     return {
       serverID: discordServer.serverID,
       serverName: discordServer.serverName,
       mostRequestedSong:
-        discordServer.songRequests.length === 0
+        discordServer.songRequests.length !== 0
           ? discordServer.songRequests.reduce(
               (prev, curr) => {
                 console.log(prev, curr);
@@ -22,17 +21,21 @@ const getServers = async (req, res, next) => {
                 numberOfTimesRequested: 0,
               }
             )
-          : {},
+          : {
+              songName: "",
+              numberOfTimesRequested: 0,
+            },
       numberOfSongsRequests: discordServer.songRequests.length,
     };
   });
 
-  console.log(responseServers);
 
   res.status(200).json(responseServers);
 };
 
 const postServers = async (req, res, next) => {
+  console.log(req.body);
+
   const { serverID, serverName } = req.body.server;
 
   const query = { serverID };

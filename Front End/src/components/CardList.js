@@ -10,7 +10,7 @@ const CardList = ({ Servers }) => {
             <Card
               testid = {i}
               key = {server.serverID}
-              name = {server.serverName}
+              serverName = {server.serverName}
               serverID = {server.serverID}
               numberOfSongsRequests = {server.numberOfSongsRequests}
               mostRequestedSong = {server.mostRequestedSong}

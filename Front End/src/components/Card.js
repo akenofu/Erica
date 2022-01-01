@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 const Card = (props) => {
   
 
-  const { serverID, name, numberOfSongsRequests, mostRequestedSong, testid } = props;
+  const { serverID, serverName, numberOfSongsRequests, mostRequestedSong, testid } = props;
   const [clicked, setClicked] = useState(false);
 
   const onClick = (event)=>{
@@ -17,15 +17,15 @@ const Card = (props) => {
   return (
     <div data-testid={testid} className={clicked ?  clickedClasses : originalClasses } onClick={onClick}>
       <img alt="Servers" src={`https://robohash.org/${serverID}?size=200x200`} />
-      <div>
-        <h2>{name}</h2>
+      <div style={{maxWidth: "250px"}}>
+        <h2 >{serverName}</h2>
         {clicked ? (
           <>
-            <p>{numberOfSongsRequests}</p>
-            <p>{mostRequestedSong}</p>
+            <p>Song Requests: {numberOfSongsRequests}</p>
+            <p> Most Requested: {mostRequestedSong.songName}</p>
           </>
         ) : (
-          <p>{numberOfSongsRequests}</p>
+          <p>Song Requests: {numberOfSongsRequests}</p>
         )}
       </div>
     </div>
