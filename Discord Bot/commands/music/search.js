@@ -31,7 +31,7 @@ module.exports = {
         embed.setDescription(`${maxTracks.map((track, i) => `**${i + 1}**. ${track.title} | ${track.author}`).join('\n')}\n\nSelect choice between **1** and **${maxTracks.length}** or **cancel** ⬇️`);
 
         embed.setTimestamp();
-        embed.setFooter('A Discord music bot with swag ❤️', message.author.avatarURL({ dynamic: true }));
+        embed.setFooter('Play your favorite music ❤️ directly in your server', message.author.avatarURL({ dynamic: true }));
 
         message.channel.send({ embeds: [embed] });
 
