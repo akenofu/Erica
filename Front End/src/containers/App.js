@@ -13,19 +13,21 @@ const App = (props) => {
     
 
     useEffect(() => {
-      fetch('https://jsonplaceholder.typicode.com/users')
+      fetch('https://localhost:3000/api/v1/servers')
       .then(response=> response.json())
       .then(data => {
         const formattedData = data.map(server => {
             return {
-              serverID: server.id,
-              name: server.name,
-              numberOfSongsRequests: server.id,
-              mostRequestedSong: server.email
+              serverID: server.serverID,
+              name: server.serverName,
+              numberOfSongsRequests: server.numberOfSongsRequests,
+              mostRequestedSong: server.mostRequestedSong
             }
         });
         setServers(formattedData);
-      });
+      }).catch(er => console.log)
+      
+      ;
      } , [])
 
 
